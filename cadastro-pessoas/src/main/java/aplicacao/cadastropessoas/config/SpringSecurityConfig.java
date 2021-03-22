@@ -6,15 +6,21 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 
-/**
- * O acesso à aplicação só poderá ser realizado por um usuário pré-existente via
- * autenticação basic.
- *
- * EXCETO por um endpoiint /source acessível sem autenticação via HTTP GET.
- */
-
 @EnableWebSecurity
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+                .authorizeRequests()
+                .antMatchers("/source").permitAll()
+                /**
+                .anyRequest().authenticated()
+                .and().httpBasic()
+                 */
+                .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and().csrf().disable();
+    }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -22,15 +28,5 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .withUser("user")
                 .password("password")
                 .roles("ROLE");
-    }
-
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .antMatchers("/source").permitAll()
-                .anyRequest().authenticated()
-                .and().httpBasic()
-                .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-                .csrf().disable();
     }
 }
