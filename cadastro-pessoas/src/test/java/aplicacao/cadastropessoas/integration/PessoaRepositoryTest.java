@@ -8,27 +8,31 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
-@DataJpaTest
+@SpringBootTest
 public class PessoaRepositoryTest {
 
     @Autowired
     PessoaRepository pessoaRepository;
 
+    /** Verificação após inicializar a aplicação
+     *  Conforme inserido no arquivo data.sql
+     *  Devem existir 7 instâncias do objeto Pessoa criadas
+     *
+     *  ATENÇÃO - cada vez que a aplicação é iniciada, o banco de dados é recriado novamente
+     *  Isso causa a repetição da inserção dos valores já presentes, fazendo o teste falhar ao ser rodado mais de 1x
+     *
+     *  SOLUÇÃO - "Drop Schema" após criar a tabela.
+     */
     @Test
     public void verificarExistencia_quandoCriada() {
-        Pessoa gabriel = new Pessoa();
-        gabriel.setNome("Gabriel");
-        gabriel.setCpf("110.349.579-88");
-        gabriel.setDataDeNascimento(LocalDate.ofEpochDay(0));
-        pessoaRepository.save(gabriel);
-
         List<Pessoa> pessoas = pessoaRepository.findAll();
-        assertThat(pessoas.size()).isEqualTo(1);
+        assertThat(pessoas.size()).isEqualTo(7);
     }
 }

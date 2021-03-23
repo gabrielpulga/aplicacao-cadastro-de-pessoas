@@ -19,7 +19,7 @@ O acesso à aplicação está protegido por OAuth com um header de autorização
 
 A aplicação está disponível em uma imagem docker a partir do seguinte link no dockerhub e não exige configurações/parâmetros adicionais. Ou seja, ao rodar a imagem, a aplicação é levantada e roda normalmente :
 
-linkdodockerhub.com
+https://hub.docker.com/repository/docker/gabrieelplg/aplicacao-cadastro-pessoas
 
 ## Documentação
 
