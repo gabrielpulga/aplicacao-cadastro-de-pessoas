@@ -25,7 +25,7 @@ public class SpringFoxConfig implements WebMvcConfigurer {
                 .paths(PathSelectors.any())
                 .build()
                 .apiInfo(apiInfo())
-                .tags(new Tag("Pessoas", "Endpoints da entidade Pessoa"));
+                .tags(new Tag("Pessoas", "Endpoints da entidade Pessoa"),new Tag ("Source", "Endpoint para acesso ao código fonte"));
     }
 
     @Override

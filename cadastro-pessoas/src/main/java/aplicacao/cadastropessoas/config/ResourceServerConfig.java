@@ -30,8 +30,8 @@ class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     @Autowired
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
-                .withUser("user")
-                .password("password")
+                .withUser("root")
+                .password("root")
                 .roles("ROLE");
     }
 }
