@@ -1,5 +1,6 @@
 package aplicacao.cadastropessoas.model;
 
+import io.swagger.annotations.ApiModel;
 import lombok.Data;
 import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -23,7 +24,9 @@ import java.time.LocalDateTime;
  */
 
 @Data
+@ApiModel(value = "Pessoa", description = "Representa uma pessoa")
 @Table(name = "pessoa")
+@Entity
 public class Pessoa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
