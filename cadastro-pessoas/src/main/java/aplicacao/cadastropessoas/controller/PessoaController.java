@@ -128,6 +128,4 @@ public class PessoaController {
         pessoaRepository.save(pessoaSalva);
         return ResponseEntity.ok(pessoaSalva);
     }
-
-
 }

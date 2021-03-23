@@ -13,7 +13,7 @@ A aplicação, desenvolvida em Java, expõe uma API de cadastro, alteração, re
 
 ## Segurança
 
-O acesso à aplicação só poderá ser realizado por OAuth com um header de autorização via Basic.
+O acesso à aplicação está protegido por OAuth com um header de autorização via Basic.
 
 ## Instalação
 
