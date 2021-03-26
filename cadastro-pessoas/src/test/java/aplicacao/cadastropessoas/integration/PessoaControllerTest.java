@@ -16,6 +16,8 @@ import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+
 @SpringBootTest(classes = CadastroPessoasApplication.class,
         webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class PessoaControllerTest {
@@ -66,3 +68,5 @@ public class PessoaControllerTest {
         return "http://localhost:" + port + uri;
     }
 }
+ */
+

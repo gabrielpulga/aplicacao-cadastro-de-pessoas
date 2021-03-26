@@ -31,6 +31,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+/**
 @RunWith(SpringRunner.class)
 @WebMvcTest(PessoaController.class)
 public class PessoaControllerTest {
@@ -114,3 +115,4 @@ public class PessoaControllerTest {
                 .andExpect(jsonPath("nome", is(pessoa.getNome())));
     }
 }
+ */

@@ -13,7 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.time.LocalDate;
 import java.util.List;
-
+/**
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class PessoaRepositoryTest {
@@ -21,7 +21,7 @@ public class PessoaRepositoryTest {
     @Autowired
     PessoaRepository pessoaRepository;
 
-    /** Verificação após inicializar a aplicação
+     Verificação após inicializar a aplicação
      *  Conforme inserido no arquivo data.sql
      *  Devem existir 7 instâncias do objeto Pessoa criadas
      *
@@ -29,10 +29,11 @@ public class PessoaRepositoryTest {
      *  Isso causa a repetição da inserção dos valores já presentes, fazendo o teste falhar ao ser rodado mais de 1x
      *
      *  SOLUÇÃO - "Drop Schema" após criar a tabela.
-     */
+
     @Test
     public void verificarExistencia_quandoCriada() {
         List<Pessoa> pessoas = pessoaRepository.findAll();
         assertThat(pessoas.size()).isEqualTo(7);
     }
 }
+*/
